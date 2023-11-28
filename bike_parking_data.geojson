@@ -1,6 +1,3 @@
-import json
-
-geojson_data = '''
 {
   "type": "FeatureCollection",
   "generator": "overpass-turbo",
@@ -63172,19 +63169,3 @@ geojson_data = '''
     }
   ]
 }
-'''
-
-# Parse the GeoJSON data
-data = json.loads(geojson_data)
-
-# Extract the features array
-features = data["features"]
-
-# Remove every two nodes
-filtered_features = features[::2]
-
-# Update the data with the filtered features
-data["features"] = filtered_features
-
-# Convert the updated data back to GeoJSON format
-updated_geojson = json.dumps(data, indent=2)
